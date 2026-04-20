@@ -10,7 +10,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{--bg:#07080f;--card:#0e0f1c;--border:#1a2444;--accent:#00e5ff;--accent2:#7c3aed;--accent3:#f59e0b;--text:#e2e8f0;--muted:#4a5568;--muted2:#64748b;}
 html{scroll-behavior:smooth;}
-body{width:100%;min-height:100vh;background:var(--bg);font-family:'Space Mono',monospace;color:var(--text);overflow-x:hidden;}
+body{width:100%;min-height:100vh;background:var(--bg);font-family:'Arial',monospace;color:var(--text);overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.03) 1px,transparent 1px);background-size:36px 36px;pointer-events:none;}
 #particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
 .pt{position:absolute;border-radius:50%;animation:rise linear infinite;opacity:0;}
@@ -38,10 +38,10 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear
 /* PAGE 1 */
 .p1-inner{position:relative;z-index:2;max-width:430px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;align-items:center;}
 .clock-widget{width:100%;margin-bottom:16px;background:rgba(14,15,28,0.88);border:1px solid var(--border);border-radius:24px;padding:20px 22px 16px;display:flex;flex-direction:column;align-items:center;backdrop-filter:blur(8px);box-shadow:0 0 0 1px rgba(0,229,255,0.05),0 4px 30px rgba(0,0,0,0.6);}
-.clock-time{font-family:'Orbitron',monospace;font-size:48px;font-weight:900;color:#fff;letter-spacing:0.04em;line-height:1;text-shadow:0 0 30px rgba(0,229,255,0.5);}
+.clock-time{font-family:'Arial',monospace;font-size:48px;font-weight:900;color:#fff;letter-spacing:0.04em;line-height:1;text-shadow:0 0 30px rgba(0,229,255,0.5);}
 .clock-time .colon{color:var(--accent);animation:blink-c 1s step-end infinite;}
 @keyframes blink-c{0%,100%{opacity:1;}50%{opacity:0.2;}}
-.clock-ampm{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:var(--accent3);letter-spacing:0.2em;margin-top:2px;}
+.clock-ampm{font-family:'Arial',sans-serif;font-size:16px;font-weight:700;color:var(--accent3);letter-spacing:0.2em;margin-top:2px;}
 .clock-date{font-size:11px;color:var(--muted2);letter-spacing:0.12em;margin-top:6px;text-align:center;}
 .clock-greeting{margin-top:10px;padding:7px 18px;background:rgba(0,229,255,0.07);border:1px solid rgba(0,229,255,0.18);border-radius:100px;font-size:10px;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;}
 .card-shell{position:relative;width:100%;background:rgba(14,15,28,0.85);border:1px solid var(--border);border-radius:28px;padding:22px 22px 24px;display:flex;flex-direction:column;align-items:center;box-shadow:0 0 0 1px rgba(0,229,255,0.05),0 8px 48px rgba(0,0,0,0.8);animation:cardIn 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;backdrop-filter:blur(8px);}
@@ -56,11 +56,11 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
 .avatar-rect{width:160px;height:180px;border-radius:10px;overflow:hidden;margin-bottom:18px;border:2px solid rgba(0,229,255,0.2);box-shadow:0 0 20px rgba(124,58,237,0.3),0 0 40px rgba(0,0,0,0.5);}
 .avatar-rect img{width:100%;height:100%;object-fit:cover;display:block;}
-.name{font-family:'Orbitron',monospace;font-size:30px;font-weight:900;color:#fff;letter-spacing:0.04em;text-align:center;text-shadow:0 0 28px rgba(0,229,255,0.4);margin-bottom:8px;}
+.name{font-family:'Arial',monospace;font-size:30px;font-weight:900;color:#fff;letter-spacing:0.04em;text-align:center;text-shadow:0 0 28px rgba(0,229,255,0.4);margin-bottom:8px;}
 .name .excl{color:var(--accent);}
 .tagline{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
 .tdot{width:5px;height:5px;border-radius:50%;background:var(--accent3);flex-shrink:0;}
-.ttext{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,158,11,0.9);}
+.ttext{font-family:'Arial',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,158,11,0.9);}
 .degree-card{width:100%;background:linear-gradient(135deg,rgba(124,58,237,0.14),rgba(0,229,255,0.08));border:1px solid rgba(124,58,237,0.35);border-radius:14px;padding:12px 20px;text-align:center;margin-bottom:20px;}
 .degree-label{font-size:8px;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;margin-bottom:3px;}
 .degree-text{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);text-shadow:0 0 14px rgba(0,229,255,0.3);}
