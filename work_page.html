@@ -1,0 +1,200 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@700;900&display=swap');
+:root{--bg:#07080f;--card:#0e0f1c;--border:#1a2444;--accent:#00e5ff;--accent2:#7c3aed;--accent3:#f59e0b;--text:#e2e8f0;--muted:#4a5568;--muted2:#64748b;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+.work-wrap{background:var(--bg);min-height:100vh;font-family:'Calibri',sans-serif;color:var(--text);padding:0;position:relative;overflow:hidden;}
+.work-wrap::before{content:'';position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.03) 1px,transparent 1px);background-size:36px 36px;pointer-events:none;}
+.topbar{height:3px;background:linear-gradient(90deg,#7c3aed,#00e5ff,#f59e0b,#7c3aed);background-size:300% 100%;animation:shimmer 3s linear infinite;}
+@keyframes shimmer{0%{background-position:0% center;}100%{background-position:300% center;}}
+.inner{position:relative;z-index:2;max-width:430px;margin:0 auto;padding:16px 16px 60px;}
+.page-header{background:rgba(14,15,28,0.9);border:1px solid var(--border);border-radius:24px;padding:22px 20px 18px;margin-bottom:16px;position:relative;overflow:hidden;backdrop-filter:blur(8px);}
+.page-header::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent2),var(--accent),var(--accent3));}
+.page-title-label{font-size:8px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.page-title-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(0,229,255,0.3),transparent);}
+.page-title{font-family:'Orbitron',monospace;font-size:28px;font-weight:900;color:#fff;letter-spacing:0.06em;text-shadow:0 0 24px rgba(0,229,255,0.35);}
+.page-title span{color:var(--accent);}
+.page-subtitle{font-size:11px;color:var(--muted2);letter-spacing:0.08em;margin-top:6px;line-height:1.6;}
+.filter-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.filter-btn{padding:7px 14px;border:1px solid var(--border);border-radius:100px;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted2);background:rgba(14,15,28,0.85);cursor:pointer;transition:all 0.2s;font-family:'Space Mono',monospace;}
+.filter-btn.active,.filter-btn:hover{border-color:rgba(0,229,255,0.35);color:var(--accent);background:rgba(0,229,255,0.07);}
+.work-list{display:flex;flex-direction:column;gap:12px;}
+.work-card{background:rgba(14,15,28,0.88);border:1px solid var(--border);border-radius:20px;padding:18px 18px 16px;position:relative;overflow:hidden;cursor:pointer;transition:border-color 0.2s,transform 0.15s;}
+.work-card:hover{border-color:rgba(0,229,255,0.25);transform:translateY(-1px);}
+.work-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:20px 0 0 20px;}
+.work-card.design::before{background:linear-gradient(180deg,var(--accent2),var(--accent));}
+.work-card.dev::before{background:linear-gradient(180deg,var(--accent),#38bdf8);}
+.work-card.photo::before{background:linear-gradient(180deg,var(--accent3),#f97316);}
+.work-card.ai::before{background:linear-gradient(180deg,#a78bfa,var(--accent2));}
+.wc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;gap:10px;}
+.wc-title{font-family:'Calibri',sans-serif;font-size:15px;font-weight:700;color:#fff;line-height:1.3;}
+.wc-badge{font-size:8px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:4px 10px;border-radius:100px;white-space:nowrap;flex-shrink:0;}
+.badge-design{background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;}
+.badge-dev{background:rgba(0,229,255,0.1);border:1px solid rgba(0,229,255,0.25);color:var(--accent);}
+.badge-photo{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);color:var(--accent3);}
+.badge-ai{background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.3);color:#c4b5fd;}
+.wc-desc{font-size:11px;color:rgba(226,232,240,0.75);line-height:1.65;margin-bottom:12px;}
+.wc-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.wc-tag{font-size:9px;padding:3px 9px;border-radius:6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);color:var(--muted2);font-family:'Space Mono',monospace;}
+.wc-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.05);}
+.wc-year{font-size:9px;color:var(--accent3);letter-spacing:0.12em;}
+.wc-status{display:flex;align-items:center;gap:5px;font-size:9px;letter-spacing:0.1em;color:var(--muted2);}
+.status-dot{width:5px;height:5px;border-radius:50%;}
+.dot-live{background:#22c55e;box-shadow:0 0 5px #22c55e;}
+.dot-done{background:var(--muted);}
+.dot-wip{background:var(--accent3);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
+.stat-card{background:rgba(14,15,28,0.88);border:1px solid var(--border);border-radius:14px;padding:12px 10px;text-align:center;}
+.stat-num{font-family:'Orbitron',monospace;font-size:22px;font-weight:900;color:var(--accent);text-shadow:0 0 14px rgba(0,229,255,0.3);}
+.stat-label{font-size:8px;color:var(--muted2);letter-spacing:0.18em;text-transform:uppercase;margin-top:3px;}
+</style>
+
+<div class="work-wrap">
+  <div class="topbar"></div>
+  <div class="inner">
+
+    <div class="page-header">
+      <div class="page-title-label">Portfolio</div>
+      <div class="page-title">WORK<span>.</span></div>
+      <div class="page-subtitle">A curated collection of projects across design, development, photography & AI.</div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num">12</div><div class="stat-label">Projects</div></div>
+      <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Categories</div></div>
+      <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">Years</div></div>
+    </div>
+
+    <div class="filter-row">
+      <div class="filter-btn active" onclick="filterCards('all',this)">All</div>
+      <div class="filter-btn" onclick="filterCards('design',this)">Design</div>
+      <div class="filter-btn" onclick="filterCards('dev',this)">Dev</div>
+      <div class="filter-btn" onclick="filterCards('photo',this)">Photo</div>
+      <div class="filter-btn" onclick="filterCards('ai',this)">AI</div>
+    </div>
+
+    <div class="work-list" id="work-list">
+
+      <div class="work-card design" data-cat="design">
+        <div class="wc-top">
+          <div class="wc-title">Brand Identity — TechForward 2024</div>
+          <div class="wc-badge badge-design">Design</div>
+        </div>
+        <div class="wc-desc">Full visual identity for the TECHFORWARD 2024 conference — logo, print collaterals, social assets, and motion graphics.</div>
+        <div class="wc-tags">
+          <span class="wc-tag">Illustrator</span>
+          <span class="wc-tag">Canva</span>
+          <span class="wc-tag">Branding</span>
+          <span class="wc-tag">Print</span>
+        </div>
+        <div class="wc-footer">
+          <div class="wc-year">2024</div>
+          <div class="wc-status"><div class="status-dot dot-done"></div>Completed</div>
+        </div>
+      </div>
+
+      <div class="work-card dev" data-cat="dev">
+        <div class="wc-top">
+          <div class="wc-title">Personal Portfolio — smgd.dev</div>
+          <div class="wc-badge badge-dev">Dev</div>
+        </div>
+        <div class="wc-desc">Mobile-first digital business card and portfolio built with HTML, CSS & vanilla JS. Features live clock, QR code, and animated UI.</div>
+        <div class="wc-tags">
+          <span class="wc-tag">HTML/CSS</span>
+          <span class="wc-tag">JavaScript</span>
+          <span class="wc-tag">UI Design</span>
+        </div>
+        <div class="wc-footer">
+          <div class="wc-year">2025</div>
+          <div class="wc-status"><div class="status-dot dot-live"></div>Live</div>
+        </div>
+      </div>
+
+      <div class="work-card photo" data-cat="photo">
+        <div class="wc-top">
+          <div class="wc-title">Event Photography — SMGD Archive</div>
+          <div class="wc-badge badge-photo">Photo</div>
+        </div>
+        <div class="wc-desc">Freelance photography and videography covering academic events, corporate gatherings, and personal milestones since 2017.</div>
+        <div class="wc-tags">
+          <span class="wc-tag">Photography</span>
+          <span class="wc-tag">Videography</span>
+          <span class="wc-tag">Editing</span>
+          <span class="wc-tag">Lightroom</span>
+        </div>
+        <div class="wc-footer">
+          <div class="wc-year">2017 – Present</div>
+          <div class="wc-status"><div class="status-dot dot-live"></div>Ongoing</div>
+        </div>
+      </div>
+
+      <div class="work-card ai" data-cat="ai">
+        <div class="wc-top">
+          <div class="wc-title">AI Prompt Engineering Toolkit</div>
+          <div class="wc-badge badge-ai">AI</div>
+        </div>
+        <div class="wc-desc">A curated set of reusable prompt templates and workflows for generative AI tools — applied to education, content, and design pipelines.</div>
+        <div class="wc-tags">
+          <span class="wc-tag">ChatGPT</span>
+          <span class="wc-tag">Midjourney</span>
+          <span class="wc-tag">Prompt Eng.</span>
+          <span class="wc-tag">Automation</span>
+        </div>
+        <div class="wc-footer">
+          <div class="wc-year">2024</div>
+          <div class="wc-status"><div class="status-dot dot-wip"></div>In Progress</div>
+        </div>
+      </div>
+
+      <div class="work-card design" data-cat="design">
+        <div class="wc-top">
+          <div class="wc-title">Embroidery & Digital Art — Captured</div>
+          <div class="wc-badge badge-design">Design</div>
+        </div>
+        <div class="wc-desc">Graphic design, embroidery artwork, and social media management for Captured Digital Art studio.</div>
+        <div class="wc-tags">
+          <span class="wc-tag">Graphic Design</span>
+          <span class="wc-tag">Embroidery</span>
+          <span class="wc-tag">SMM</span>
+        </div>
+        <div class="wc-footer">
+          <div class="wc-year">2020 – 2023</div>
+          <div class="wc-status"><div class="status-dot dot-done"></div>Completed</div>
+        </div>
+      </div>
+
+      <div class="work-card dev" data-cat="dev">
+        <div class="wc-top">
+          <div class="wc-title">Mobile App Wireframe — Design Thinking WS</div>
+          <div class="wc-badge badge-dev">Dev</div>
+        </div>
+        <div class="wc-desc">High-fidelity wireframe prototype developed during the Design Thinking & Mobile App Wireframing seminar.</div>
+        <div class="wc-tags">
+          <span class="wc-tag">Figma</span>
+          <span class="wc-tag">Wireframing</span>
+          <span class="wc-tag">UX</span>
+        </div>
+        <div class="wc-footer">
+          <div class="wc-year">2023</div>
+          <div class="wc-status"><div class="status-dot dot-done"></div>Completed</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function filterCards(cat, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.work-card').forEach(c=>{
+    if(cat==='all'||c.dataset.cat===cat){
+      c.style.display='block';
+    } else {
+      c.style.display='none';
+    }
+  });
+}
+</script>
